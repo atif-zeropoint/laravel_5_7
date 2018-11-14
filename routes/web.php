@@ -13,16 +13,16 @@
 
 Route::get('/', function() {
 
-    return view('welcome')->with(
-        [
-            'tasks' => [
-                'Go to store',
-                'Go to markete',
-                'Go to work',
-            ],
-            'foo'   => 'bar',
-            'title' => request('title'),
-        ]
+    return view('welcome',
+                [
+                    'tasks' => [
+                        'Go to store',
+                        'Go to markete',
+                        'Go to work',
+                    ],
+                    'foo'   => 'bar',
+                    'title' => request('title'),
+                ]
     );
 });
 
