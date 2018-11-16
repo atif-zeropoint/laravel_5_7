@@ -13,6 +13,10 @@ use Illuminate\Foundation\Inspiring;
 |
 */
 
+Artisan::command('hello', function () {
+    $this->comment('I have been called');
+})->describe('Helping materials');
+
 Artisan::command('inspire', function () {
     $this->comment(Inspiring::quote());
 })->describe('Display an inspiring quote');
