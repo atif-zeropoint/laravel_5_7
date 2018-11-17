@@ -14,6 +14,28 @@
 Route::get('/', 'PagesController@home');
 Route::get('/contact', 'PagesController@contact');
 Route::get('/about', 'PagesController@about');
+
+
+
+//Naming conventions for the routes:
+
+// @index -> To show all
+// @create -> To show create form
+// @show -> To show one
+// @store -> To store
+// @edit -> To show edit form
+// @update -> To update
+// @destroy -> To delete
+
+
+//Route::resource('projects', 'ProjectsController');
+
+
+
 Route::get('/projects', 'ProjectsController@index');
-Route::post('/projects', 'ProjectsController@store');
 Route::get('/projects/create', 'ProjectsController@create');
+Route::get('/projects/{project}', 'ProjectsController@show');
+Route::post('/projects', 'ProjectsController@store');
+Route::get('/projects/{project}/edit', 'ProjectsController@edit');
+Route::patch('/projects/{project}', 'ProjectsController@update');
+Route::delete('/projects/{project}', 'ProjectsController@destroy');
