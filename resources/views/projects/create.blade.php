@@ -12,15 +12,9 @@
             <textarea placeholder="My project description" name="description">{{ old('description') }}</textarea>
         </div>
 
-        <div><button type="submit">Create project</button></div>
-        @if($errors->any())
         <div>
-            <ul>
-                @foreach($errors->all() as $error)
-                    <li>{{ $error }}</li>
-                @endforeach
-            </ul>
+            <button type="submit">Create project</button>
         </div>
-        @endif
+        @include('errors')
     </form>
 @endsection

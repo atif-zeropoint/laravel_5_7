@@ -12,13 +12,26 @@
             @foreach($project->tasks as $task)
                 <div>
                     <form method="post" action="/tasks/{{$task->id}}">
-                    @method('PATCH')
-                    @csrf
-                        <input type="checkbox" name="completed" onclick="this.form.submit()" {{$task->completed ? 'checked' : ''}}>
+                        @method('PATCH')
+                        @csrf
+                        <input type="checkbox" name="completed"
+                               onclick="this.form.submit()" {{$task->completed ? 'checked' : ''}}>
                         {{$task->description}}
                     </form>
                 </div>
             @endforeach
         </div>
     @endif
+
+    <div>
+        <form method="post" action="/project/{{$project->id}}/task">
+            @csrf
+            <input type="text" name="description" value="">
+            <div>
+                <input type="submit" value="Add a task">
+            </div>
+
+        </form>
+    </div>
+    @include('errors')
 @endsection
