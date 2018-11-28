@@ -14,7 +14,7 @@
                     <form method="post" action="/tasks/{{$task->id}}">
                     @method('PATCH')
                     @csrf
-                        <input type="checkbox" name="completed" onclick="this.form.submit()">
+                        <input type="checkbox" name="completed" onclick="this.form.submit()" {{$task->completed ? 'checked' : ''}}>
                         {{$task->description}}
                     </form>
                 </div>
