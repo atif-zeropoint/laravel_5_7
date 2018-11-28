@@ -5,15 +5,20 @@
     <p>
         {{ $project->description }}
     </p>
-    <div><a href="/projects/{{ $project->id }}/edit">Edit project</a> </div>
+    <div><a href="/projects/{{ $project->id }}/edit">Edit project</a></div>
 
     @if($project->tasks->count())
-    <div>
-        <ul>
+        <div>
             @foreach($project->tasks as $task)
-                <li>{{$task->description}}</li>
+                <div>
+                    <form method="post" action="/tasks/{{$task->id}}">
+                    @method('PATCH')
+                    @csrf
+                        <input type="checkbox" name="completed" onclick="this.form.submit()">
+                        {{$task->description}}
+                    </form>
+                </div>
             @endforeach
-        </ul>
-    </div>
+        </div>
     @endif
 @endsection
